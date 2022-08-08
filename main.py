@@ -24,7 +24,7 @@ wd.find_element(By.CSS_SELECTOR,'.btn-search').click()
 
 # 切换至下一页
 author_output = ""
-for i in range(0,2) : 
+for i in range(0,CYCLES) : 
 	element = wd.find_element(By.CLASS_NAME,'result-table-list')
 	Names = element.find_elements(By.CLASS_NAME,'name')
 	# Authors = element.find_elements(By.CLASS_NAME,'author') #将来也许会用到,获取作者信息
