@@ -3,7 +3,7 @@
 基于selenium、jieba、wordcloud，通过词云，直观了解导师研究方向
 
 # 使用说明
-需手动且必须填写`DRIVER—_PATH`,`作者`,`作者单位`,`TXT_PATH`,,`TFF_PATH`
+需手动且必须填写`DRIVER—_PATH`,`作者`,`作者单位`,`CYCLES`,`TXT_PATH`,`TFF_PATH`
 需手动但不必填写`STOPWORDS.add()`
 # 目前已实现
 爬取文献名，绘制词云
