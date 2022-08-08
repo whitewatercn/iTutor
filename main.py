@@ -39,7 +39,7 @@ wd.quit()
 
 
 # jieba分词
-jieba.load_userdict(r"jieba_dict.txt")
+jieba.load_userdict(r"TXT_PATH") #手动填写自定义词库路径
 words = jieba.lcut(author_output)
 words_output = ' '.join(words)
 
