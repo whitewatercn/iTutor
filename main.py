@@ -4,13 +4,19 @@ import wordcloud
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
+from selenium.common.exceptions import NoSuchElementException
 
+
+# 待查询信息
+end_year = 2022
+begin_year = input("请输入最早年份:")
+author = input("请输入作者名称:")
+work_unit = input("请输入作者单位:")
 
 # get网站
 wd = webdriver.Chrome(service=Service(r"DRIVER—_PATH")) #手动填写webdriver本地路径
 wd.get('https://kns.cnki.net/kns8/AdvSearch?dbcode=CFLS')
 wd.implicitly_wait(2)
-
 
 # 切换至专业检索
 switch_majorsearch=wd.find_element(By.CSS_SELECTOR,'li[name="majorSearch"]')
@@ -18,23 +24,33 @@ switch_majorsearch.click()
 
 # 输入检索式
 switch_input_majorsearch = wd.find_element(By.CSS_SELECTOR,'.textarea-major')
-switch_input_majorsearch.send_keys("AU % '作者' AND AF % '作者单位'")  #手动填写作者及作者单位
+search_text =  "AU % "+ "'"+ author +"' "+ "AND AF % "+ "'"+ work_unit +"'" 
+switch_input_majorsearch.send_keys(search_text)
 wd.find_element(By.CSS_SELECTOR,'.btn-search').click()
 
 
 # 切换至下一页
+
 author_output = ""
-for i in range(0,CYCLES) : 
+numbers = 0
+var = 1
+while var == 1 :
 	element = wd.find_element(By.CLASS_NAME,'result-table-list')
 	Names = element.find_elements(By.CLASS_NAME,'name')
+	# Data = element.find_element(By.CLASS_NAME,'data')
 	# Authors = element.find_elements(By.CLASS_NAME,'author') #将来也许会用到,获取作者信息
 	for Name in Names :
 		author_output = author_output + ' '+Name.text 
-	time.sleep(1)
-	switch_next = wd.find_element(By.ID,'PageNext').click()
-	time.sleep(1)
-
+		# numbers = numbers + 1
+		# year = data.text
+	try :
+		time.sleep(1)
+		switch_next = wd.find_element(By.ID,'PageNext').click()
+	except NoSuchElementException :
+		break
 wd.quit()
+
+
 
 
 
