@@ -3,6 +3,7 @@ import time
 from unittest import result 
 import jieba
 import wordcloud
+import xlrd
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
@@ -10,10 +11,12 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import StaleElementReferenceException
 
 # 待查询信息
-end_year = 2022
-begin_year = input("请输入最早年份:")
-author = input("请输入作者名称:")
-work_unit = input("请输入作者单位:")
+# end_year = 2022
+# begin_year = input("请输入最早年份:")
+book = xlrd.open_workbook("iTutor_setting/search.xls")
+sheet = book.sheet_by_index(0)
+author = sheet.cell_value(rowx=1,colx=0)
+work_unit = sheet.cell_value(rowx=1,colx=1)
 
 # get网站
 wd = webdriver.Chrome(service=Service(r"iTutor_tool/chromedriver"))
