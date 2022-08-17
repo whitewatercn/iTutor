@@ -68,7 +68,7 @@ words_output = ' '.join(words)
 from wordcloud import STOPWORDS
 
 # 读取自定义屏蔽词
-add_stopwords = open("iTutor_setting/stopwords.txt","rt")
+add_stopwords = open("iTutor_setting/stopwords.txt","rt",encoding='utf-8')
 for line in add_stopwords.readlines():
 	line = str(line)
 	line = line[:-1]
