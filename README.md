@@ -4,7 +4,7 @@
 
   # 使用说明
 
-  1.  需自行下载适配个人电脑的浏览器driver，[下载地址点这里](https://www.selenium.dev/zh-cn/documentation/webdriver/getting_started/install_drivers/)至目录`iTutor_tool`(项目自带chromedriver)
+  1.  需自行下载适配个人电脑的浏览器driver至目录`iTutor_tool` (本项目自带chromedriver) [下载地址点这里](https://www.selenium.dev/zh-cn/documentation/webdriver/getting_started/install_drivers/)
   2.  目录`iTutor_setting` 中的`jieba_dict.txt`为自定义分词配置文件,一行一词
   3. 目录`iTutor_setting` 中的`stopwords.txt`为自定义排除词配置文件,一行一词
 
