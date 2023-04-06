@@ -1,4 +1,5 @@
 # 项目简介
+![](https://img.shields.io/github/stars/whitewatercn/iTutor?style=social)
 
 这是一个小爬虫，用于爬取并导师在CNKI收录文献的相关信息，通过生成词云，直观了解导师研究方向
 
